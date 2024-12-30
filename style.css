@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'Exil71';
+    src: url('/fonts/EXIL71.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'nmRegular';
+    src: url('/fonts/NeueMontreal-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'nmRegular';
+    background-color: #e7e7e7;
+    width: 100%;
+}
