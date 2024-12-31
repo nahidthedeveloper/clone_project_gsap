@@ -1,3 +1,8 @@
+:root {
+    --color-dark: #232323;
+    --color-light: #e7e7e7;
+  }
+  
 @font-face {
     font-family: 'Exil71';
     src: url('/fonts/EXIL71.woff2') format('woff2');
@@ -20,6 +25,5 @@
 
 body{
     font-family: 'nmRegular', serif;
-    background-color: #e7e7e7;
     width: 100%;
 }
