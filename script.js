@@ -40,7 +40,7 @@ gsap.from("#firstHR", {
     ease: 'power2.out',
 })
 
-gsap.from('.section1_left h1, .section1_left svg', {
+gsap.from('.section1_left h3, .section1_left svg', {
     y: 300,
     opacity: 0,
     duration: 0.8,
