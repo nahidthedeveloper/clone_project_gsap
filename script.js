@@ -81,7 +81,7 @@ gsap.to(aboutBody, {
     yoyo: true, // Make the animation go back and forth
     ease: 'linear',
     modifiers: {
-        backgroundPosition: function (value) {
+        backgroundPosition: function () {
             // Increase the random range for a bigger flicker effect
             let randomX = Math.random() * 50 - 100;  // Random between -25px and 25px
             let randomY = Math.random() * 50 - 100;  // Random between -25px and 25px
@@ -150,7 +150,7 @@ listImages.forEach((listImage, index) => {
     imageArea.classList.add('h-full', 'w-full', 'object-cover', 'object-right');
     imageArea.setAttribute('alt', `Image for index ${index + 1}`);
 
-    listImage.addEventListener('mouseenter', (event) => {
+    listImage.addEventListener('mouseenter', () => {
         imageArea.src = `images/about/list/${index + 1}.jpg`;
 
         // Position the image container next to the list item
