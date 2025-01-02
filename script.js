@@ -5,6 +5,10 @@ document.addEventListener("DOMContentLoaded", () => {
         wheelMultiplier: 1, // Adjust scroll speed
     });
 
+    window.addEventListener('load', () => {
+        lenis.scrollTo(0);
+    });
+
     function raf(time) {
         lenis.raf(time);
         requestAnimationFrame(raf);
@@ -13,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(raf);
 });
 // Lenis End
+
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -65,6 +70,27 @@ gsap.from('footer a', {
 });
 
 // About Page
+// Select the element
+const aboutBody = document.querySelector('#aboutBody');
+
+// Animate the background position with GSAP
+gsap.to(aboutBody, {
+    backgroundPosition: '10px 10px', // Change the end position
+    duration: 0.1,
+    repeat: -1, // Infinite repeat
+    yoyo: true, // Make the animation go back and forth
+    ease: 'linear',
+    modifiers: {
+        backgroundPosition: function (value) {
+            // Increase the random range for a bigger flicker effect
+            let randomX = Math.random() * 50 - 100;  // Random between -25px and 25px
+            let randomY = Math.random() * 50 - 100;  // Random between -25px and 25px
+            return `${randomX}px ${randomY}px`;
+        }
+    }
+});
+
+
 const aboutTimeline = gsap.timeline({paused: true});
 
 aboutTimeline
@@ -89,6 +115,23 @@ gsap.utils.toArray('#about_container section h1').forEach(h1 => {
         scrollTrigger: {
             trigger: h1,
             start: 'top 140%',
+            once: true,
+            scroller: document.body,
+            // markers: true
+        }
+    });
+});
+
+gsap.utils.toArray('#about_container hr, footer hr').forEach(hr => {
+    gsap.from(hr, {
+        width: '10%',
+        duration: 1,
+        opacity: 0,
+        delay: 0.5,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: hr,
+            start: 'top 130%',
             once: true,
             scroller: document.body,
             // markers: true
