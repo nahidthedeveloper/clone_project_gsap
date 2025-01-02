@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
         lenis.raf(time);
         requestAnimationFrame(raf);
     }
+
     requestAnimationFrame(raf);
 });
 // Lenis End
@@ -64,20 +65,37 @@ gsap.from('footer a', {
 });
 
 // About Page
-const aboutTimeline = gsap.timeline({ paused: true });
+const aboutTimeline = gsap.timeline({paused: true});
 
 aboutTimeline
-  .to('.overlay', {
-    width: 0,
-    duration: 1,
-  }, 'a')
-  .from('#about_men img', {
-    opacity: 0,
-    scale: 1.5,
-    duration: 1,
-  }, 'a');
+    .to('.overlay', {
+        width: 0,
+        duration: 1,
+    }, 'a')
+    .from('#about_men img', {
+        opacity: 0,
+        scale: 1.5,
+        duration: 1,
+    }, 'a');
 
 aboutTimeline.play();
+
+gsap.utils.toArray('#about_container section h1').forEach(h1 => {
+    gsap.from(h1, {
+        opacity: 0,
+        duration: 1,
+        y: 300,
+        ease: 'power2.out',
+        scrollTrigger: {
+            trigger: h1,
+            start: 'top 140%',
+            once: true,
+            scroller: document.body,
+            // markers: true
+        }
+    });
+});
+
 
 const listImages = document.querySelectorAll('.list_image');
 const imageAreaContainer = document.createElement('div');
@@ -115,7 +133,7 @@ listImages.forEach((listImage, index) => {
     listImage.addEventListener('mousemove', (event) => {
         const offsetX = 100;
         const offsetY = 20;
-        
+
         if (window.innerWidth <= 768) {
             gsap.to(imageAreaContainer, {
                 left: event.x - imageAreaContainer.offsetWidth / 2 + 100,
