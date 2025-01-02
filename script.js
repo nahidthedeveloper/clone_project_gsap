@@ -70,27 +70,6 @@ gsap.from('footer a', {
 });
 
 // About Page
-// Select the element
-const aboutBody = document.querySelector('#aboutBody');
-
-// Animate the background position with GSAP
-gsap.to(aboutBody, {
-    backgroundPosition: '10px 10px', // Change the end position
-    duration: 0.1,
-    repeat: -1, // Infinite repeat
-    yoyo: true, // Make the animation go back and forth
-    ease: 'linear',
-    modifiers: {
-        backgroundPosition: function () {
-            // Increase the random range for a bigger flicker effect
-            let randomX = Math.random() * 50 - 100;  // Random between -25px and 25px
-            let randomY = Math.random() * 50 - 100;  // Random between -25px and 25px
-            return `${randomX}px ${randomY}px`;
-        }
-    }
-});
-
-
 const aboutTimeline = gsap.timeline({paused: true});
 
 aboutTimeline
